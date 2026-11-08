@@ -1,0 +1,1466 @@
+{
+  "complete": true,
+  "completed_runs": 6,
+  "aggregate": {
+    "10": {
+      "rounds": 3,
+      "quality": {
+        "f1": {
+          "mean": 0.4400701183222453,
+          "sample_sd": 0.013656073641353787,
+          "n": 3,
+          "values": [
+            0.44889483940321667,
+            0.4469750706554223,
+            0.42434044490809686
+          ]
+        },
+        "bleu1": {
+          "mean": 0.38816518137599254,
+          "sample_sd": 0.012341272826551484,
+          "n": 3,
+          "values": [
+            0.3949787163500662,
+            0.39559763991516184,
+            0.3739191878627496
+          ]
+        },
+        "exact_match": {
+          "mean": 0.22613065326633167,
+          "sample_sd": 0.010050251256281409,
+          "n": 3,
+          "values": [
+            0.23618090452261306,
+            0.22613065326633167,
+            0.21608040201005024
+          ]
+        },
+        "non_adversarial_f1": {
+          "mean": 0.36285078043086766,
+          "sample_sd": 0.01210706548626027,
+          "n": 3,
+          "values": [
+            0.3680079993314669,
+            0.37152531963314844,
+            0.3490190223279877
+          ]
+        },
+        "adversarial_f1": {
+          "mean": 0.6898007429922324,
+          "sample_sd": 0.02130120719969282,
+          "n": 3,
+          "values": [
+            0.7104863221884499,
+            0.690982776089159,
+            0.6679331306990881
+          ]
+        }
+      },
+      "costs": {
+        "qa_tokens_per_question": {
+          "mean": 13827.809045226131,
+          "sample_sd": 57.00439786742708,
+          "n": 3,
+          "values": [
+            13800.814070351758,
+            13789.316582914573,
+            13893.29648241206
+          ]
+        },
+        "qa_api_seconds_per_question": {
+          "mean": 1.8945999239537072,
+          "sample_sd": 0.059464506997903885,
+          "n": 3,
+          "values": [
+            1.9605931748768277,
+            1.8451808834154202,
+            1.8780257135688738
+          ]
+        },
+        "qa_estimated_cost_per_question": {
+          "mean": 0.0013687370502512561,
+          "sample_sd": 0.0005291658829239716,
+          "n": 3,
+          "values": [
+            0.001977470532663316,
+            0.0011101872512562815,
+            0.0010185533668341708
+          ]
+        }
+      },
+      "per_category": {
+        "1": {
+          "name": "Multi-hop",
+          "count": 32,
+          "f1": {
+            "mean": 0.3029298432941041,
+            "sample_sd": 0.026431610146402704,
+            "n": 3,
+            "values": [
+              0.31412539397736766,
+              0.32192118645243645,
+              0.27274294945250827
+            ]
+          },
+          "bleu1": {
+            "mean": 0.22179107038835053,
+            "sample_sd": 0.013272973080439317,
+            "n": 3,
+            "values": [
+              0.23027740110582967,
+              0.22860043675809943,
+              0.2064953733011225
+            ]
+          },
+          "exact_match": {
+            "mean": 0.052083333333333336,
+            "sample_sd": 0.018042195912175804,
+            "n": 3,
+            "values": [
+              0.0625,
+              0.0625,
+              0.03125
+            ]
+          }
+        },
+        "2": {
+          "name": "Temporal",
+          "count": 37,
+          "f1": {
+            "mean": 0.277044577044577,
+            "sample_sd": 0.019698244753500353,
+            "n": 3,
+            "values": [
+              0.2743028743028743,
+              0.25886080886080887,
+              0.29797004797004795
+            ]
+          },
+          "bleu1": {
+            "mean": 0.19296718118465758,
+            "sample_sd": 0.01209887456961762,
+            "n": 3,
+            "values": [
+              0.18461646905726373,
+              0.18744295111927728,
+              0.20684212337743177
+            ]
+          },
+          "exact_match": {
+            "mean": 0.036036036036036036,
+            "sample_sd": 0.015604061329449345,
+            "n": 3,
+            "values": [
+              0.02702702702702703,
+              0.02702702702702703,
+              0.05405405405405406
+            ]
+          }
+        },
+        "3": {
+          "name": "Open-domain",
+          "count": 13,
+          "f1": {
+            "mean": 0.13803498636792277,
+            "sample_sd": 0.031647097484275966,
+            "n": 3,
+            "values": [
+              0.15710114420521662,
+              0.1555000555000555,
+              0.10150375939849625
+            ]
+          },
+          "bleu1": {
+            "mean": 0.12002330702352616,
+            "sample_sd": 0.02130298314950671,
+            "n": 3,
+            "values": [
+              0.11813034662842763,
+              0.14220959929122115,
+              0.0997299751509297
+            ]
+          },
+          "exact_match": {
+            "mean": 0,
+            "sample_sd": 0.0,
+            "n": 3,
+            "values": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "4": {
+          "name": "Single-hop",
+          "count": 70,
+          "f1": {
+            "mean": 0.4773494209521173,
+            "sample_sd": 0.0188362182929932,
+            "n": 3,
+            "values": [
+              0.48133831524618625,
+              0.49387171383442785,
+              0.45683823377573773
+            ]
+          },
+          "bleu1": {
+            "mean": 0.416926812618714,
+            "sample_sd": 0.02100601681542128,
+            "n": 3,
+            "values": [
+              0.42246363662941455,
+              0.43460981688108613,
+              0.3937069843456414
+            ]
+          },
+          "exact_match": {
+            "mean": 0.14761904761904762,
+            "sample_sd": 0.016495721976846456,
+            "n": 3,
+            "values": [
+              0.15714285714285714,
+              0.15714285714285714,
+              0.12857142857142856
+            ]
+          }
+        },
+        "5": {
+          "name": "Adversarial / unanswerable",
+          "count": 47,
+          "f1": {
+            "mean": 0.6898007429922324,
+            "sample_sd": 0.02130120719969282,
+            "n": 3,
+            "values": [
+              0.7104863221884499,
+              0.690982776089159,
+              0.6679331306990881
+            ]
+          },
+          "bleu1": {
+            "mean": 0.6864381119775989,
+            "sample_sd": 0.021305949838047563,
+            "n": 3,
+            "values": [
+              0.7083601977218998,
+              0.6851471319783586,
+              0.6658070062325382
+            ]
+          },
+          "exact_match": {
+            "mean": 0.6737588652482269,
+            "sample_sd": 0.024568096561260706,
+            "n": 3,
+            "values": [
+              0.7021276595744681,
+              0.6595744680851063,
+              0.6595744680851063
+            ]
+          }
+        }
+      }
+    },
+    "5": {
+      "rounds": 3,
+      "quality": {
+        "f1": {
+          "mean": 0.4314481724646453,
+          "sample_sd": 0.01572031908548285,
+          "n": 3,
+          "values": [
+            0.4464682465577471,
+            0.43276573208013636,
+            0.41511053875605236
+          ]
+        },
+        "bleu1": {
+          "mean": 0.37960373481659143,
+          "sample_sd": 0.00941041076466472,
+          "n": 3,
+          "values": [
+            0.38980744487898583,
+            0.3777374719231121,
+            0.37126628764767644
+          ]
+        },
+        "exact_match": {
+          "mean": 0.23283082077051928,
+          "sample_sd": 0.011605030536474891,
+          "n": 3,
+          "values": [
+            0.24623115577889448,
+            0.22613065326633167,
+            0.22613065326633167
+          ]
+        },
+        "non_adversarial_f1": {
+          "mean": 0.3300898849403987,
+          "sample_sd": 0.017666061290253093,
+          "n": 3,
+          "values": [
+            0.34509423632983244,
+            0.3345560759282236,
+            0.31061934256314
+          ]
+        },
+        "adversarial_f1": {
+          "mean": 0.7592451874366768,
+          "sample_sd": 0.013119369314670875,
+          "n": 3,
+          "values": [
+            0.7743161094224924,
+            0.7503799392097265,
+            0.7530395136778115
+          ]
+        }
+      },
+      "costs": {
+        "qa_tokens_per_question": {
+          "mean": 6861.189279731993,
+          "sample_sd": 35.44280644655817,
+          "n": 3,
+          "values": [
+            6821.964824120603,
+            6870.688442211055,
+            6890.914572864322
+          ]
+        },
+        "qa_api_seconds_per_question": {
+          "mean": 1.7264424979926003,
+          "sample_sd": 0.05507141827503787,
+          "n": 3,
+          "values": [
+            1.7737107025143508,
+            1.7396478954812011,
+            1.665968895982249
+          ]
+        },
+        "qa_estimated_cost_per_question": {
+          "mean": 0.0004284432914572864,
+          "sample_sd": 0.00010441700558199179,
+          "n": 3,
+          "values": [
+            0.0005416111055276382,
+            0.0004078829246231156,
+            0.0003358358442211055
+          ]
+        }
+      },
+      "per_category": {
+        "1": {
+          "name": "Multi-hop",
+          "count": 32,
+          "f1": {
+            "mean": 0.27597352969885863,
+            "sample_sd": 0.02995755438309069,
+            "n": 3,
+            "values": [
+              0.3097404532601901,
+              0.25258612914862916,
+              0.2655940066877567
+            ]
+          },
+          "bleu1": {
+            "mean": 0.18414132801550753,
+            "sample_sd": 0.0323953993302884,
+            "n": 3,
+            "values": [
+              0.2112849772067428,
+              0.14827872888856833,
+              0.1928602779512115
+            ]
+          },
+          "exact_match": {
+            "mean": 0.041666666666666664,
+            "sample_sd": 0.018042195912175804,
+            "n": 3,
+            "values": [
+              0.0625,
+              0.03125,
+              0.03125
+            ]
+          }
+        },
+        "2": {
+          "name": "Temporal",
+          "count": 37,
+          "f1": {
+            "mean": 0.255021905021905,
+            "sample_sd": 0.04634717690795165,
+            "n": 3,
+            "values": [
+              0.2622908622908623,
+              0.2973050973050973,
+              0.20546975546975546
+            ]
+          },
+          "bleu1": {
+            "mean": 0.16788239974300115,
+            "sample_sd": 0.032855188613424804,
+            "n": 3,
+            "values": [
+              0.16280330409363453,
+              0.20298136263248803,
+              0.13786253250288089
+            ]
+          },
+          "exact_match": {
+            "mean": 0,
+            "sample_sd": 0.0,
+            "n": 3,
+            "values": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "3": {
+          "name": "Open-domain",
+          "count": 13,
+          "f1": {
+            "mean": 0.11225630291564358,
+            "sample_sd": 0.0075318702284350395,
+            "n": 3,
+            "values": [
+              0.11214896214896215,
+              0.11984126984126985,
+              0.10477867675669875
+            ]
+          },
+          "bleu1": {
+            "mean": 0.09073996332135398,
+            "sample_sd": 0.02410373373053444,
+            "n": 3,
+            "values": [
+              0.11828381512729248,
+              0.0804310058736089,
+              0.07350506896316057
+            ]
+          },
+          "exact_match": {
+            "mean": 0,
+            "sample_sd": 0.0,
+            "n": 3,
+            "values": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "4": {
+          "name": "Single-hop",
+          "count": 70,
+          "f1": {
+            "mean": 0.4349623876694753,
+            "sample_sd": 0.011998018543868871,
+            "n": 3,
+            "values": [
+              0.44828472864442903,
+              0.43159346143012506,
+              0.4250089729338718
+            ]
+          },
+          "bleu1": {
+            "mean": 0.38087704031967456,
+            "sample_sd": 0.004251744322640937,
+            "n": 3,
+            "values": [
+              0.3850888731321977,
+              0.3809557698926564,
+              0.37658647793416955
+            ]
+          },
+          "exact_match": {
+            "mean": 0.13809523809523808,
+            "sample_sd": 0.016495721976846456,
+            "n": 3,
+            "values": [
+              0.15714285714285714,
+              0.12857142857142856,
+              0.12857142857142856
+            ]
+          }
+        },
+        "5": {
+          "name": "Adversarial / unanswerable",
+          "count": 47,
+          "f1": {
+            "mean": 0.7592451874366768,
+            "sample_sd": 0.013119369314670875,
+            "n": 3,
+            "values": [
+              0.7743161094224924,
+              0.7503799392097265,
+              0.7530395136778115
+            ]
+          },
+          "bleu1": {
+            "mean": 0.7573608424672255,
+            "sample_sd": 0.012878777792029741,
+            "n": 3,
+            "values": [
+              0.7721899849559424,
+              0.7489791532344724,
+              0.7509133892112616
+            ]
+          },
+          "exact_match": {
+            "mean": 0.75177304964539,
+            "sample_sd": 0.012284048280630353,
+            "n": 3,
+            "values": [
+              0.7659574468085106,
+              0.7446808510638298,
+              0.7446808510638298
+            ]
+          }
+        }
+      }
+    }
+  },
+  "paired": {
+    "rounds": [
+      {
+        "round": 1,
+        "quality_k5_minus_k10": {
+          "f1": -0.0024265928454695884,
+          "bleu1": -0.005171271471080374,
+          "exact_match": 0.010050251256281423,
+          "non_adversarial_f1": -0.022913763001634446,
+          "adversarial_f1": 0.06382978723404253
+        },
+        "token_reduction_fraction": 0.5056838828967194,
+        "api_seconds_reduction_fraction": 0.09531935271284298,
+        "question_f1_better": 22,
+        "question_f1_equal": 154,
+        "question_f1_worse": 23
+      },
+      {
+        "round": 2,
+        "quality_k5_minus_k10": {
+          "f1": -0.014209338575285946,
+          "bleu1": -0.017860167992049758,
+          "exact_match": 0.0,
+          "non_adversarial_f1": -0.036969243704924826,
+          "adversarial_f1": 0.05939716312056742
+        },
+        "token_reduction_fraction": 0.5017382913143014,
+        "api_seconds_reduction_fraction": 0.057193844182299336,
+        "question_f1_better": 23,
+        "question_f1_equal": 145,
+        "question_f1_worse": 31
+      },
+      {
+        "round": 3,
+        "quality_k5_minus_k10": {
+          "f1": -0.009229906152044498,
+          "bleu1": -0.0026529002150731396,
+          "exact_match": 0.010050251256281423,
+          "non_adversarial_f1": -0.038399679764847705,
+          "adversarial_f1": 0.08510638297872342
+        },
+        "token_reduction_fraction": 0.5040115510679746,
+        "api_seconds_reduction_fraction": 0.11291475726583444,
+        "question_f1_better": 29,
+        "question_f1_equal": 139,
+        "question_f1_worse": 31
+      }
+    ],
+    "quality_k5_minus_k10": {
+      "f1": {
+        "mean": -0.00862194585760001,
+        "sample_sd": 0.0059148530009707065,
+        "n": 3,
+        "values": [
+          -0.0024265928454695884,
+          -0.014209338575285946,
+          -0.009229906152044498
+        ]
+      },
+      "bleu1": {
+        "mean": -0.00856144655940109,
+        "sample_sd": 0.008150779941654088,
+        "n": 3,
+        "values": [
+          -0.005171271471080374,
+          -0.017860167992049758,
+          -0.0026529002150731396
+        ]
+      },
+      "exact_match": {
+        "mean": 0.006700167504187615,
+        "sample_sd": 0.005802515268237454,
+        "n": 3,
+        "values": [
+          0.010050251256281423,
+          0.0,
+          0.010050251256281423
+        ]
+      },
+      "non_adversarial_f1": {
+        "mean": -0.03276089549046899,
+        "sample_sd": 0.008557806408179467,
+        "n": 3,
+        "values": [
+          -0.022913763001634446,
+          -0.036969243704924826,
+          -0.038399679764847705
+        ]
+      },
+      "adversarial_f1": {
+        "mean": 0.06944444444444446,
+        "sample_sd": 0.013743517676398913,
+        "n": 3,
+        "values": [
+          0.06382978723404253,
+          0.05939716312056742,
+          0.08510638297872342
+        ]
+      }
+    },
+    "token_reduction_fraction": {
+      "mean": 0.5038112417596651,
+      "sample_sd": 0.0019804080635208903,
+      "n": 3,
+      "values": [
+        0.5056838828967194,
+        0.5017382913143014,
+        0.5040115510679746
+      ]
+    },
+    "api_seconds_reduction_fraction": {
+      "mean": 0.08847598472032558,
+      "sample_sd": 0.028483834061208774,
+      "n": 3,
+      "values": [
+        0.09531935271284298,
+        0.057193844182299336,
+        0.11291475726583444
+      ]
+    }
+  },
+  "error_cases": {
+    "selection": "Cases are selected by the three-round mean paired F1 difference, with the same direction in at least two rounds. This does not imply identical outputs in every round.",
+    "mean_f1_k5_better_questions": 40,
+    "mean_f1_equal_questions": 118,
+    "mean_f1_k5_worse_questions": 41,
+    "repeated_k5_worse": [
+      {
+        "question_index": 10,
+        "question": "How long has Caroline had her current group of friends for?",
+        "category": 2,
+        "reference": "4 years",
+        "mean_delta": -1.0,
+        "k5_worse_rounds": 3,
+        "k5_better_rounds": 0,
+        "predictions": [
+          {
+            "round": 1,
+            "k10_prediction": "4 years",
+            "k5_prediction": "Since then",
+            "k10_f1": 1.0,
+            "k5_f1": 0.0,
+            "delta": -1.0
+          },
+          {
+            "round": 2,
+            "k10_prediction": "4 years",
+            "k5_prediction": "Since 12 July, 2023",
+            "k10_f1": 1.0,
+            "k5_f1": 0.0,
+            "delta": -1.0
+          },
+          {
+            "round": 3,
+            "k10_prediction": "4 years",
+            "k5_prediction": "since then",
+            "k10_f1": 1.0,
+            "k5_f1": 0.0,
+            "delta": -1.0
+          }
+        ]
+      },
+      {
+        "question_index": 128,
+        "question": "What did Caroline find in her neighborhood during her walk?",
+        "category": 4,
+        "reference": "a rainbow sidewalk",
+        "mean_delta": -0.9047619047619048,
+        "k5_worse_rounds": 3,
+        "k5_better_rounds": 0,
+        "predictions": [
+          {
+            "round": 1,
+            "k10_prediction": "a rainbow sidewalk",
+            "k5_prediction": "pretty cool stuff",
+            "k10_f1": 1.0,
+            "k5_f1": 0.0,
+            "delta": -1.0
+          },
+          {
+            "round": 2,
+            "k10_prediction": "a vibrant rainbow sidewalk",
+            "k5_prediction": "pretty cool stuff",
+            "k10_f1": 0.8571428571428571,
+            "k5_f1": 0.0,
+            "delta": -0.8571428571428571
+          },
+          {
+            "round": 3,
+            "k10_prediction": "a vibrant rainbow sidewalk",
+            "k5_prediction": "pretty cool stuff",
+            "k10_f1": 0.8571428571428571,
+            "k5_f1": 0.0,
+            "delta": -0.8571428571428571
+          }
+        ]
+      },
+      {
+        "question_index": 83,
+        "question": "What did Melanie realize after the charity race?",
+        "category": 4,
+        "reference": "self-care is important",
+        "mean_delta": -0.8571428571428571,
+        "k5_worse_rounds": 3,
+        "k5_better_rounds": 0,
+        "predictions": [
+          {
+            "round": 1,
+            "k10_prediction": "self-care is really important",
+            "k5_prediction": "taking care of our minds",
+            "k10_f1": 0.8571428571428571,
+            "k5_f1": 0.0,
+            "delta": -0.8571428571428571
+          },
+          {
+            "round": 2,
+            "k10_prediction": "self-care is really important",
+            "k5_prediction": "taking care of our minds",
+            "k10_f1": 0.8571428571428571,
+            "k5_f1": 0.0,
+            "delta": -0.8571428571428571
+          },
+          {
+            "round": 3,
+            "k10_prediction": "self-care is really important",
+            "k5_prediction": "taking care of our minds",
+            "k10_f1": 0.8571428571428571,
+            "k5_f1": 0.0,
+            "delta": -0.8571428571428571
+          }
+        ]
+      }
+    ],
+    "repeated_k5_better": [
+      {
+        "question_index": 155,
+        "question": "Why did Melanie choose the adoption agency?",
+        "category": 5,
+        "reference": "Not mentioned in the conversation",
+        "mean_delta": 1.0,
+        "k5_worse_rounds": 0,
+        "k5_better_rounds": 3,
+        "predictions": [
+          {
+            "round": 1,
+            "k10_prediction": "because of their inclusivity and support for LGBTQ+ individuals",
+            "k5_prediction": "Not mentioned in the conversation",
+            "k10_f1": 0.0,
+            "k5_f1": 1.0,
+            "delta": 1.0
+          },
+          {
+            "round": 2,
+            "k10_prediction": "because of their inclusivity and support for LGBTQ+ individuals",
+            "k5_prediction": "Not mentioned in the conversation",
+            "k10_f1": 0.0,
+            "k5_f1": 1.0,
+            "delta": 1.0
+          },
+          {
+            "round": 3,
+            "k10_prediction": "because of their inclusivity and support for LGBTQ+ individuals",
+            "k5_prediction": "Not mentioned in the conversation",
+            "k10_f1": 0.0,
+            "k5_f1": 1.0,
+            "delta": 1.0
+          }
+        ]
+      },
+      {
+        "question_index": 24,
+        "question": "What does Melanie do to destress?",
+        "category": 1,
+        "reference": "Running, pottery",
+        "mean_delta": 0.41666666666666663,
+        "k5_worse_rounds": 0,
+        "k5_better_rounds": 3,
+        "predictions": [
+          {
+            "round": 1,
+            "k10_prediction": "running, reading, or playing my violin",
+            "k5_prediction": "running",
+            "k10_f1": 0.25,
+            "k5_f1": 0.6666666666666666,
+            "delta": 0.41666666666666663
+          },
+          {
+            "round": 2,
+            "k10_prediction": "running, reading, or playing my violin",
+            "k5_prediction": "running",
+            "k10_f1": 0.25,
+            "k5_f1": 0.6666666666666666,
+            "delta": 0.41666666666666663
+          },
+          {
+            "round": 3,
+            "k10_prediction": "running, reading, or playing my violin",
+            "k5_prediction": "running",
+            "k10_f1": 0.25,
+            "k5_f1": 0.6666666666666666,
+            "delta": 0.41666666666666663
+          }
+        ]
+      },
+      {
+        "question_index": 87,
+        "question": "Why did Caroline choose the adoption agency?",
+        "category": 4,
+        "reference": "because of their inclusivity and support for LGBTQ+ individuals",
+        "mean_delta": 0.0995670995670996,
+        "k5_worse_rounds": 0,
+        "k5_better_rounds": 3,
+        "predictions": [
+          {
+            "round": 1,
+            "k10_prediction": "helps LGBTQ+ folks with adoption",
+            "k5_prediction": "helps LGBTQ+ folks with adoption and its inclusivity spoke to her",
+            "k10_f1": 0.14285714285714285,
+            "k5_f1": 0.3,
+            "delta": 0.15714285714285714
+          },
+          {
+            "round": 2,
+            "k10_prediction": "helps LGBTQ+ folks with adoption and its inclusivity spoke to her",
+            "k5_prediction": "Because it helps LGBTQ+ folks with adoption and its inclusivity spoke to her.",
+            "k10_f1": 0.3,
+            "k5_f1": 0.3636363636363637,
+            "delta": 0.06363636363636371
+          },
+          {
+            "round": 3,
+            "k10_prediction": "It helps LGBTQ+ folks with adoption and its inclusivity spoke to her.",
+            "k5_prediction": "because it helps LGBTQ+ folks with adoption and its inclusivity spoke to her",
+            "k10_f1": 0.28571428571428575,
+            "k5_f1": 0.3636363636363637,
+            "delta": 0.07792207792207795
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "The same conversation and fixed memory are reused. Variation reflects repeated question answering, not independent memory construction.",
+    "Three rounds do not establish statistical significance, equivalence, or a globally optimal k.",
+    "API time sums successful requests only; it excludes local scoring, retrieval, failed attempts and backoff. It is not end-to-end runtime.",
+    "Charges are estimated from successful-request usage and the stated rates, not a verified bill. Cache warming and execution order affect charges and latency.",
+    "F1 uses the repository implementation based on unique token sets. It is not the percentage of questions answered correctly.",
+    "k is a retrieval parameter with linked-neighbor expansion; it is not exactly five or ten distinct notes in the final context.",
+    "Failure counters for round-one k=10 include memory construction; later runs reuse memory, so total counters are not directly comparable.",
+    "DeepSeek, the first-conversation subset, robust prompts and corrected category-five scoring differ from the original paper setup."
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "deepseek-flash",
+    "checked_date": "2026-11-07",
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "tier": "off_peak",
+    "rates_per_million": {
+      "cached_input": 0.003,
+      "uncached_input": 0.15,
+      "output": 0.6
+    },
+    "notes": "Official schedule: weekends are fully off-peak. Apply only to logged calls whose timestamps qualify. Estimate for observed successful requests, not a verified account bill."
+  },
+  "model": "deepseek-flash",
+  "unique_questions": 199,
+  "memory_notes": 419,
+  "dataset_sha256": "553cd5a15e25f2ceccc6ed185221eba645080c93e5b91087560a91aa5961f365",
+  "seed": 42,
+  "updated_at_utc": "2026-11-08T03:06:47.654975+00:00",
+  "source_summary_sha256": "c783d41c4a83f21c21eacada2cbda066d356c384b27efc938af68359d60814fa",
+  "upstream_commit": "f9a173dec325d84fcc97e7828775c7b241c33466",
+  "cache_sha256": {
+    "memory_cache_sample_0.pkl": "587390ca97f34134a809cf21d16cddf50d554b2db9fcd3741441f5e7df776b59",
+    "retriever_cache_sample_0.pkl": "f5a0390b1dc5a9be923f7a486e907520237ff728f9f591c18cf282857504bba4",
+    "retriever_cache_embeddings_sample_0.npy": "aea639657d9c271bcf6e6f48bce1a95bc792d317759ac8de25b657bb17f470ff"
+  },
+  "runs": [
+    {
+      "round": 1,
+      "k": 10,
+      "quality": {
+        "f1": 0.44889483940321667,
+        "bleu1": 0.3949787163500662,
+        "exact_match": 0.23618090452261306,
+        "non_adversarial_f1": 0.3680079993314669,
+        "adversarial_f1": 0.7104863221884499
+      },
+      "per_category": {
+        "1": {
+          "name": "Multi-hop",
+          "count": 32,
+          "f1": 0.31412539397736766,
+          "bleu1": 0.23027740110582967,
+          "exact_match": 0.0625
+        },
+        "2": {
+          "name": "Temporal",
+          "count": 37,
+          "f1": 0.2743028743028743,
+          "bleu1": 0.18461646905726373,
+          "exact_match": 0.02702702702702703
+        },
+        "3": {
+          "name": "Open-domain",
+          "count": 13,
+          "f1": 0.15710114420521662,
+          "bleu1": 0.11813034662842763,
+          "exact_match": 0
+        },
+        "4": {
+          "name": "Single-hop",
+          "count": 70,
+          "f1": 0.48133831524618625,
+          "bleu1": 0.42246363662941455,
+          "exact_match": 0.15714285714285714
+        },
+        "5": {
+          "name": "Adversarial / unanswerable",
+          "count": 47,
+          "f1": 0.7104863221884499,
+          "bleu1": 0.7083601977218998,
+          "exact_match": 0.7021276595744681
+        }
+      },
+      "phases": {
+        "initialization": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "memory_build": {
+          "successful_calls": 1341,
+          "input_tokens": 1333234,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 1333234,
+          "output_tokens": 149433,
+          "total_tokens": 1482667,
+          "api_seconds": 1723.843567199714,
+          "truncated_outputs": 33,
+          "estimated_cost": 0.28964490000000004
+        },
+        "qa": {
+          "successful_calls": 398,
+          "input_tokens": 2742218,
+          "cached_input_tokens": 138112,
+          "uncached_input_tokens": 2604106,
+          "output_tokens": 4144,
+          "total_tokens": 2746362,
+          "api_seconds": 390.1580418004887,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.3935166359999999
+        }
+      },
+      "qa_tokens_per_question": 13800.814070351758,
+      "qa_api_seconds_per_question": 1.9605931748768277,
+      "qa_estimated_cost_per_question": 0.001977470532663316,
+      "llm_failures": {},
+      "resumed_questions": 0,
+      "empty_predictions": 0,
+      "cached_samples": [],
+      "data_file": "data/round1_k10.json",
+      "data_sha256": "4fa98261472a02c68377e19e8193148baaeb5f3690d9030a7e844e69fdd66a7b"
+    },
+    {
+      "round": 1,
+      "k": 5,
+      "quality": {
+        "f1": 0.4464682465577471,
+        "bleu1": 0.38980744487898583,
+        "exact_match": 0.24623115577889448,
+        "non_adversarial_f1": 0.34509423632983244,
+        "adversarial_f1": 0.7743161094224924
+      },
+      "per_category": {
+        "1": {
+          "name": "Multi-hop",
+          "count": 32,
+          "f1": 0.3097404532601901,
+          "bleu1": 0.2112849772067428,
+          "exact_match": 0.0625
+        },
+        "2": {
+          "name": "Temporal",
+          "count": 37,
+          "f1": 0.2622908622908623,
+          "bleu1": 0.16280330409363453,
+          "exact_match": 0
+        },
+        "3": {
+          "name": "Open-domain",
+          "count": 13,
+          "f1": 0.11214896214896215,
+          "bleu1": 0.11828381512729248,
+          "exact_match": 0
+        },
+        "4": {
+          "name": "Single-hop",
+          "count": 70,
+          "f1": 0.44828472864442903,
+          "bleu1": 0.3850888731321977,
+          "exact_match": 0.15714285714285714
+        },
+        "5": {
+          "name": "Adversarial / unanswerable",
+          "count": 47,
+          "f1": 0.7743161094224924,
+          "bleu1": 0.7721899849559424,
+          "exact_match": 0.7659574468085106
+        }
+      },
+      "phases": {
+        "initialization": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "memory_build": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "qa": {
+          "successful_calls": 398,
+          "input_tokens": 1353571,
+          "cached_input_tokens": 664320,
+          "uncached_input_tokens": 689251,
+          "output_tokens": 4000,
+          "total_tokens": 1357571,
+          "api_seconds": 352.9684298003558,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.10778061
+        }
+      },
+      "qa_tokens_per_question": 6821.964824120603,
+      "qa_api_seconds_per_question": 1.7737107025143508,
+      "qa_estimated_cost_per_question": 0.0005416111055276382,
+      "llm_failures": {},
+      "resumed_questions": 0,
+      "empty_predictions": 0,
+      "cached_samples": [
+        0
+      ],
+      "data_file": "data/round1_k5.json",
+      "data_sha256": "0250d86d0b0e9c45d64cbb46cb51e4b02b8f038bcf9ec7c7eb12043fa7b2db71"
+    },
+    {
+      "round": 2,
+      "k": 5,
+      "quality": {
+        "f1": 0.43276573208013636,
+        "bleu1": 0.3777374719231121,
+        "exact_match": 0.22613065326633167,
+        "non_adversarial_f1": 0.3345560759282236,
+        "adversarial_f1": 0.7503799392097265
+      },
+      "per_category": {
+        "1": {
+          "name": "Multi-hop",
+          "count": 32,
+          "f1": 0.25258612914862916,
+          "bleu1": 0.14827872888856833,
+          "exact_match": 0.03125
+        },
+        "2": {
+          "name": "Temporal",
+          "count": 37,
+          "f1": 0.2973050973050973,
+          "bleu1": 0.20298136263248803,
+          "exact_match": 0
+        },
+        "3": {
+          "name": "Open-domain",
+          "count": 13,
+          "f1": 0.11984126984126985,
+          "bleu1": 0.0804310058736089,
+          "exact_match": 0
+        },
+        "4": {
+          "name": "Single-hop",
+          "count": 70,
+          "f1": 0.43159346143012506,
+          "bleu1": 0.3809557698926564,
+          "exact_match": 0.12857142857142856
+        },
+        "5": {
+          "name": "Adversarial / unanswerable",
+          "count": 47,
+          "f1": 0.7503799392097265,
+          "bleu1": 0.7489791532344724,
+          "exact_match": 0.7446808510638298
+        }
+      },
+      "phases": {
+        "initialization": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "memory_build": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "qa": {
+          "successful_calls": 398,
+          "input_tokens": 1363255,
+          "cached_input_tokens": 855284,
+          "uncached_input_tokens": 507971,
+          "output_tokens": 4012,
+          "total_tokens": 1367267,
+          "api_seconds": 346.189931200759,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.081168702
+        }
+      },
+      "qa_tokens_per_question": 6870.688442211055,
+      "qa_api_seconds_per_question": 1.7396478954812011,
+      "qa_estimated_cost_per_question": 0.0004078829246231156,
+      "llm_failures": {},
+      "resumed_questions": 0,
+      "empty_predictions": 0,
+      "cached_samples": [
+        0
+      ],
+      "data_file": "data/round2_k5.json",
+      "data_sha256": "ed0fc1682118def029347017271d0c6ac00ce00c672061e7ebcfbdda20a84a03"
+    },
+    {
+      "round": 2,
+      "k": 10,
+      "quality": {
+        "f1": 0.4469750706554223,
+        "bleu1": 0.39559763991516184,
+        "exact_match": 0.22613065326633167,
+        "non_adversarial_f1": 0.37152531963314844,
+        "adversarial_f1": 0.690982776089159
+      },
+      "per_category": {
+        "1": {
+          "name": "Multi-hop",
+          "count": 32,
+          "f1": 0.32192118645243645,
+          "bleu1": 0.22860043675809943,
+          "exact_match": 0.0625
+        },
+        "2": {
+          "name": "Temporal",
+          "count": 37,
+          "f1": 0.25886080886080887,
+          "bleu1": 0.18744295111927728,
+          "exact_match": 0.02702702702702703
+        },
+        "3": {
+          "name": "Open-domain",
+          "count": 13,
+          "f1": 0.1555000555000555,
+          "bleu1": 0.14220959929122115,
+          "exact_match": 0
+        },
+        "4": {
+          "name": "Single-hop",
+          "count": 70,
+          "f1": 0.49387171383442785,
+          "bleu1": 0.43460981688108613,
+          "exact_match": 0.15714285714285714
+        },
+        "5": {
+          "name": "Adversarial / unanswerable",
+          "count": 47,
+          "f1": 0.690982776089159,
+          "bleu1": 0.6851471319783586,
+          "exact_match": 0.6595744680851063
+        }
+      },
+      "phases": {
+        "initialization": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "memory_build": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "qa": {
+          "successful_calls": 398,
+          "input_tokens": 2739941,
+          "cached_input_tokens": 1309821,
+          "uncached_input_tokens": 1430120,
+          "output_tokens": 4133,
+          "total_tokens": 2744074,
+          "api_seconds": 367.1909957996686,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.220927263
+        }
+      },
+      "qa_tokens_per_question": 13789.316582914573,
+      "qa_api_seconds_per_question": 1.8451808834154202,
+      "qa_estimated_cost_per_question": 0.0011101872512562815,
+      "llm_failures": {},
+      "resumed_questions": 102,
+      "empty_predictions": 0,
+      "cached_samples": [
+        0
+      ],
+      "data_file": "data/round2_k10.json",
+      "data_sha256": "db36342ea4650b5eb531b428b2e02c887d0619272a917a03147f71db2fc5db9d",
+      "interruption": "DeepSeek HTTP402 insufficient balance"
+    },
+    {
+      "round": 3,
+      "k": 10,
+      "quality": {
+        "f1": 0.42434044490809686,
+        "bleu1": 0.3739191878627496,
+        "exact_match": 0.21608040201005024,
+        "non_adversarial_f1": 0.3490190223279877,
+        "adversarial_f1": 0.6679331306990881
+      },
+      "per_category": {
+        "1": {
+          "name": "Multi-hop",
+          "count": 32,
+          "f1": 0.27274294945250827,
+          "bleu1": 0.2064953733011225,
+          "exact_match": 0.03125
+        },
+        "2": {
+          "name": "Temporal",
+          "count": 37,
+          "f1": 0.29797004797004795,
+          "bleu1": 0.20684212337743177,
+          "exact_match": 0.05405405405405406
+        },
+        "3": {
+          "name": "Open-domain",
+          "count": 13,
+          "f1": 0.10150375939849625,
+          "bleu1": 0.0997299751509297,
+          "exact_match": 0
+        },
+        "4": {
+          "name": "Single-hop",
+          "count": 70,
+          "f1": 0.45683823377573773,
+          "bleu1": 0.3937069843456414,
+          "exact_match": 0.12857142857142856
+        },
+        "5": {
+          "name": "Adversarial / unanswerable",
+          "count": 47,
+          "f1": 0.6679331306990881,
+          "bleu1": 0.6658070062325382,
+          "exact_match": 0.6595744680851063
+        }
+      },
+      "phases": {
+        "initialization": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "memory_build": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "qa": {
+          "successful_calls": 398,
+          "input_tokens": 2760680,
+          "cached_input_tokens": 1454840,
+          "uncached_input_tokens": 1305840,
+          "output_tokens": 4086,
+          "total_tokens": 2764766,
+          "api_seconds": 373.7271170002059,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.20269212
+        }
+      },
+      "qa_tokens_per_question": 13893.29648241206,
+      "qa_api_seconds_per_question": 1.8780257135688738,
+      "qa_estimated_cost_per_question": 0.0010185533668341708,
+      "llm_failures": {},
+      "resumed_questions": 0,
+      "empty_predictions": 0,
+      "cached_samples": [
+        0
+      ],
+      "data_file": "data/round3_k10.json",
+      "data_sha256": "b123b27e04f64d1f166ba04d8e4b0deb17380429068efeeb22c6054fb93b3849"
+    },
+    {
+      "round": 3,
+      "k": 5,
+      "quality": {
+        "f1": 0.41511053875605236,
+        "bleu1": 0.37126628764767644,
+        "exact_match": 0.22613065326633167,
+        "non_adversarial_f1": 0.31061934256314,
+        "adversarial_f1": 0.7530395136778115
+      },
+      "per_category": {
+        "1": {
+          "name": "Multi-hop",
+          "count": 32,
+          "f1": 0.2655940066877567,
+          "bleu1": 0.1928602779512115,
+          "exact_match": 0.03125
+        },
+        "2": {
+          "name": "Temporal",
+          "count": 37,
+          "f1": 0.20546975546975546,
+          "bleu1": 0.13786253250288089,
+          "exact_match": 0
+        },
+        "3": {
+          "name": "Open-domain",
+          "count": 13,
+          "f1": 0.10477867675669875,
+          "bleu1": 0.07350506896316057,
+          "exact_match": 0
+        },
+        "4": {
+          "name": "Single-hop",
+          "count": 70,
+          "f1": 0.4250089729338718,
+          "bleu1": 0.37658647793416955,
+          "exact_match": 0.12857142857142856
+        },
+        "5": {
+          "name": "Adversarial / unanswerable",
+          "count": 47,
+          "f1": 0.7530395136778115,
+          "bleu1": 0.7509133892112616,
+          "exact_match": 0.7446808510638298
+        }
+      },
+      "phases": {
+        "initialization": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "memory_build": {
+          "successful_calls": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_seconds": 0.0,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.0
+        },
+        "qa": {
+          "successful_calls": 398,
+          "input_tokens": 1367121,
+          "cached_input_tokens": 957411,
+          "uncached_input_tokens": 409710,
+          "output_tokens": 4171,
+          "total_tokens": 1371292,
+          "api_seconds": 331.52781030046754,
+          "truncated_outputs": 0,
+          "estimated_cost": 0.06683133299999999
+        }
+      },
+      "qa_tokens_per_question": 6890.914572864322,
+      "qa_api_seconds_per_question": 1.665968895982249,
+      "qa_estimated_cost_per_question": 0.0003358358442211055,
+      "llm_failures": {},
+      "resumed_questions": 0,
+      "empty_predictions": 0,
+      "cached_samples": [
+        0
+      ],
+      "data_file": "data/round3_k5.json",
+      "data_sha256": "e92b640045243572a92efd5cc4eb8c5476f1acca0801a96ef2d239a0075d6593"
+    }
+  ]
+}

@@ -1,5 +1,54 @@
 # Agentic Memory 🧠
 
+## FTEC5660 reproduction — Project No. 9
+
+This fork studies how answer-stage retrieval quantity affects A-MEM QA quality and token usage. Three paired rounds compare k=10 with k=5 using DeepSeek Flash, the same 419-note memory and the same 199 LoCoMo questions. These are partial reproduction results under a different model and evaluation setup from the paper.
+
+FTEC5660 reproduction: see [REPRODUCTION.md](REPRODUCTION.md) for the Windows environment, pinned dependencies, and evaluation commands.
+
+Completed three-round measurements: [THREE_ROUND_RESULTS.md](THREE_ROUND_RESULTS.md).
+English report: [submission/REPORT_DRAFT.md](submission/REPORT_DRAFT.md). See also the [metric definitions](submission/F1_AND_CATEGORY5.md) and [error-case analysis](ERROR_CASE_ANALYSIS.md).
+
+Replay the packaged, real experiment outputs without an API request:
+
+```powershell
+python -X utf8 scripts/demo-results.py --presentation
+```
+
+This is saved-result replay, not live model inference. The portable measured data are in `submission/data/` and `submission/measurements.json`.
+
+### Install and run a new evaluation
+
+The measured environment is Windows, Python 3.12 and CPU-based PyTorch. In PowerShell:
+
+```powershell
+git clone https://github.com/crescentIsland/A-mem.git
+cd A-mem
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
+Copy-Item .env.example .env
+```
+
+Edit the local `.env`: set `OPENAI_API_KEY` to your own DeepSeek API key and `OPENAI_BASE_URL=https://api.deepseek.com`. Never commit that file. Then prepare resources and run:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/check-environment.py
+.\scripts\run-eval.ps1 -Model deepseek-flash -Ratio 0.1 -RetrieveK 10 -Seed 42
+.\scripts\run-eval.ps1 -Model deepseek-flash -Ratio 0.1 -RetrieveK 5 -Seed 42 -RequireCache
+```
+
+These commands download model/NLTK resources and make paid API requests. The first evaluation constructs memory; the second requires the existing cache. New outputs go to `results/`. Rebuilding memory and remote-model generation are stochastic, so new answers can differ from the saved measurements. See [REPRODUCTION.md](REPRODUCTION.md) for the three-round design, configuration details and validation commands.
+
+### Changes and measured outcome
+
+- DeepSeek integration, dataset-specific cache isolation and API-usage measurement.
+- Atomic answer checkpoints and recovery tests for interrupted evaluations.
+- Six saved QA result sets, quality/cost summaries, error cases and API-free replay.
+
+Lower k reduced QA tokens by a mean paired **50.38%**, with an overall F1 difference of **−0.86 percentage points** and an answerable-question F1 difference of **−3.28 percentage points**. This is an observed quality-resource trade-off on one fixed-memory conversation, not a universal optimum. Full means and sample standard deviations are in [THREE_ROUND_RESULTS.md](THREE_ROUND_RESULTS.md).
+
+## Upstream project description
+
 A novel agentic memory system for LLM agents that can dynamically organize memories in an agentic way.
 
 > **Note:** This repository is specifically designed to reproduce the results presented in our paper. If you want to use the A-Mem system in building your agents, please refer to our official implementation at: [A-mem-sys](https://github.com/WujiangXu/A-mem-sys)
