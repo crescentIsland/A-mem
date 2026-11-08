@@ -17,6 +17,8 @@ from llm_text_parsers import (
 import os
 import json
 import argparse
+import hashlib
+from evaluation_checkpoint import load_checkpoint, save_checkpoint
 import logging
 from typing import List, Dict, Optional
 from pathlib import Path
@@ -235,16 +237,39 @@ def evaluate_dataset(dataset_path: str, model: str, output_path: Optional[str] =
 
     i = 0
     error_num = 0
+    # Distinguish smoke data from full histories; k sweeps can reuse the same memory.
+    dataset_digest = hashlib.sha256(Path(dataset_path).read_bytes()).hexdigest()
     memories_dir = os.path.join(
         os.path.dirname(__file__),
-        "cached_memories_robust_{}_{}{}".format(backend, model, "_refresh" if refresh_index else ""),
+        "cached_memories_robust_{}_{}{}_{}".format(
+            backend, model, "_refresh" if refresh_index else "", dataset_digest[:12]
+        ),
     )
     os.makedirs(memories_dir, exist_ok=True)
     allow_categories = [1, 2, 3, 4, 5]
     cached_samples, stale_cache_samples = [], []
+    checkpoint_path = Path(output_path).with_name(Path(output_path).stem + '_checkpoint.json') if output_path else None
+    checkpoint_metadata = dict(
+        dataset_sha256=dataset_digest, model=model, retrieve_k=retrieve_k,
+        seed=seed, ratio=ratio, backend=backend, temperature_c5=temperature_c5,
+        refresh_index=refresh_index, memory_scope=memory_scope,
+        legacy_c5_reference=legacy_c5_reference,
+    )
+    expected_questions = [dict(
+        sample_id=sample_idx, question_index=qa_idx, question=qa.question,
+        reference=qa.reference(legacy_c5_reference), category=qa.category,
+        adversarial_answer=qa.adversarial_answer,
+    ) for sample_idx, sample in enumerate(samples)
+      for qa_idx, qa in enumerate(sample.qa) if int(qa.category) in allow_categories]
+    saved_answers, checkpoint_recovery = load_checkpoint(
+        checkpoint_path, checkpoint_metadata, expected_questions
+    ) if checkpoint_path else ({}, {})
+    if saved_answers:
+        eval_logger.info(f'Resuming {len(saved_answers)} saved questions without LLM calls')
 
     def load_or_build(sample_idx, sample):
         """An agent holding this conversation's memory, loaded from the cache or built and cached."""
+        os.environ["AMEM_PHASE"] = "initialization"
         agent = RobustAdvancedMemAgent(model, backend, retrieve_k, temperature_c5,
                                        sglang_host, sglang_port, refresh_index)
 
@@ -275,12 +300,16 @@ def evaluate_dataset(dataset_path: str, model: str, output_path: Optional[str] =
                                     f"layer; delete {memories_dir} to rebuild them")
         else:
             eval_logger.info(f"No cached memories found for sample {sample_idx}. Creating new memories.")
+            os.environ["AMEM_PHASE"] = "memory_build"
 
             for _, turns in sample.conversation.sessions.items():
                 for turn in turns.turns:
                     turn_datatime = turns.date_time
                     conversation_tmp = "Speaker " + turn.speaker + "says : " + turn.text
                     agent.add_memory(conversation_tmp, time=turn_datatime)
+                    note_count = len(agent.memory_system.memories)
+                    if note_count % 25 == 0:
+                        eval_logger.info(f"Built {note_count} memory notes for sample {sample_idx}")
 
             memories_to_cache = agent.memory_system.memories
             with open(memory_cache_file, 'wb') as f:
@@ -301,11 +330,19 @@ def evaluate_dataset(dataset_path: str, model: str, output_path: Optional[str] =
         agent = pooled_agent if memory_scope == "pooled" else load_or_build(sample_idx, sample)
 
         eval_logger.info(f"Processing sample {sample_idx + 1}/{len(samples)}")
+        os.environ["AMEM_PHASE"] = "qa"
 
         for qa_idx, qa in enumerate(sample.qa):
             if int(qa.category) in allow_categories:
                 total_questions += 1
                 category_counts[qa.category] += 1
+
+                saved = saved_answers.get((sample_idx, qa_idx))
+                if saved is not None:
+                    results.append(saved)
+                    all_metrics.append(saved['metrics'])
+                    all_categories.append(qa.category)
+                    continue
 
                 # the category-5 option order comes from the question's own generator
                 rng = random.Random(f"{seed}:{sample_idx}:{qa_idx}")
@@ -330,6 +367,7 @@ def evaluate_dataset(dataset_path: str, model: str, output_path: Optional[str] =
 
                 result = {
                     "sample_id": sample_idx,
+                    "question_index": qa_idx,
                     "question": qa.question,
                     "prediction": prediction,
                     "reference": reference,
@@ -338,6 +376,8 @@ def evaluate_dataset(dataset_path: str, model: str, output_path: Optional[str] =
                     "metrics": metrics,
                 }
                 results.append(result)
+                if checkpoint_path:
+                    save_checkpoint(checkpoint_path, checkpoint_metadata, results, checkpoint_recovery)
 
                 if total_questions % 10 == 0:
                     eval_logger.info(f"Processed {total_questions} questions")
@@ -346,6 +386,8 @@ def evaluate_dataset(dataset_path: str, model: str, output_path: Optional[str] =
 
     final_results = {
         "model": model,
+        "retrieve_k": retrieve_k,
+        "dataset_sha256": dataset_digest,
         "dataset": dataset_path,
         "memory_layer": "robust",
         "total_questions": total_questions,
@@ -365,6 +407,8 @@ def evaluate_dataset(dataset_path: str, model: str, output_path: Optional[str] =
         # "answer" counts questions scored as empty predictions because the call failed
         "llm_failures": dict(FAILURES),
         "individual_results": results,
+        "resumed_questions": len(saved_answers),
+        "checkpoint_recovery": checkpoint_recovery,
     }
     eval_logger.info(f"Error number: {error_num}")
     eval_logger.info(f"LLM failures absorbed in this run: {dict(FAILURES) or 'none'}")

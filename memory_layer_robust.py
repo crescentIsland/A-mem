@@ -105,10 +105,15 @@ class RobustOpenAIController(RobustBaseLLMController):
             api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             raise ValueError("OpenAI API key not found. Set OPENAI_API_KEY environment variable.")
-        self.client = OpenAI(api_key=api_key)
+        self.client = OpenAI(api_key=api_key, timeout=120, max_retries=0)
 
     @retry_llm_call(max_retries=2)
     def get_completion(self, prompt: str, temperature: float = 0.7) -> str:
+        # Keep DeepSeek's final-answer behavior explicit under the upstream token limit.
+        options = {}
+        if self.client.base_url.host == "api.deepseek.com":
+            options["extra_body"] = {"thinking": {"type": "disabled"}}
+        started = time.perf_counter()
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -117,8 +122,26 @@ class RobustOpenAIController(RobustBaseLLMController):
             ],
             temperature=temperature,
             max_tokens=1000,
+            **options,
         )
-        return response.choices[0].message.content
+        usage_path = os.getenv("AMEM_USAGE_LOG")
+        if usage_path:
+            with open(usage_path, "a", encoding="utf-8") as usage_file:
+                usage_file.write(json.dumps({
+                    "time_utc": datetime.utcnow().isoformat() + "Z",
+                    "phase": os.getenv("AMEM_PHASE", "unspecified"),
+                    "model": response.model,
+                    "temperature": temperature,
+                    "max_tokens": 1000,
+                    "thinking": "disabled" if options else "provider_default",
+                    "latency_seconds": time.perf_counter() - started,
+                    "finish_reason": response.choices[0].finish_reason,
+                    "usage": response.usage.model_dump() if response.usage else None,
+                }) + "\n")
+        content = response.choices[0].message.content
+        if not content or not content.strip():
+            raise ValueError("LLM returned no final answer")
+        return content
 
 
 class RobustOllamaController(RobustBaseLLMController):
